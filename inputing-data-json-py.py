@@ -1,7 +1,7 @@
 import json
 
 students = [
-    {"id": 1, "name": "Sarthak", "marks": 92}
+    {"id": 6, "name": "Skibidi", "marks": 99}
 ]
 
 with open("students.json", "w") as file:
