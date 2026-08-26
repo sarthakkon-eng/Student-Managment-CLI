@@ -22,7 +22,7 @@ def Search_student():
         if i["id"] == stu_id:
             print("Student found: ",i)
         else:
-            print("Student not found")           
+            continue          
 
 def update_student():
     stu_id = int(input("Enter student id to update: "))
@@ -49,18 +49,22 @@ def Delete_student():
             return
     print("Student not found")
 
-print("Welcome to Student Management System")
-print("Menu:")
+print("===== Student Management System =====")
+print("")
 print("1. Add Student")
 print("2. Search Student")
 print("3. Update Student")
 print("4. Delete Student")
-x = int(input("Enter your choice: "))
-if x == 1:
-    add_student()
-elif x == 2:
-    Search_student()
-elif x == 3:
-    update_student()
-elif x == 4:
-    Delete_student()
+
+choice = "no"
+while choice == "yes":
+    x = int(input("Enter your choice: "))
+    if x == 1:
+        add_student()
+    elif x == 2:
+        Search_student()
+    elif x == 3:
+        update_student()
+    elif x == 4:
+        Delete_student()
+    choice = input("Do you want to continue? (yes/no): ")
