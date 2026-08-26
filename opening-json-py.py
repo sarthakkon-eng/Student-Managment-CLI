@@ -4,4 +4,14 @@ import json
 with open("students.json", "r") as f:
     students = json.load(f)
 
-print(students)
+def add_student():
+    pass
+def Search_student():
+    pass
+
+def update_student():
+    pass
+
+def Delete_student():
+    pass
+
