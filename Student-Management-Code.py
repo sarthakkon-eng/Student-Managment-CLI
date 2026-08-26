@@ -5,9 +5,12 @@ with open("students.json", "r") as f:
     students = json.load(f)
 
 def add_student():
-    name = input("Enter student name: ")
-    stu_id = int(input("Enter student id: "))
-    marks = int(input("Enter student marks: "))
+    try:
+        name = input("Enter student name: ")
+        stu_id = int(input("Enter student id: "))
+        marks = int(input("Enter student marks: "))
+    except ValueError:
+        print("Invalid input. Please enter valid numbers.")
     stu_info = {
         "id": stu_id,
         "name": name,
@@ -16,6 +19,7 @@ def add_student():
     students.append(stu_info)
     with open("students.json", "w") as f:
         json.dump(students, f)
+
 def Search_student():
     stu_id = int(input("Enter student id to search: "))
     for i in students:
@@ -67,4 +71,6 @@ while choice == "yes":
         update_student()
     elif x == 4:
         Delete_student()
+    else :
+        print("Invalid choice")
     choice = input("Do you want to continue? (yes/no): ")
