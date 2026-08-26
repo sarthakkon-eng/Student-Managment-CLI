@@ -17,13 +17,37 @@ def add_student():
     with open("students.json", "w") as f:
         json.dump(students, f)
 def Search_student():
-    pass
+    stu_id = int(input("Enter student id to search: "))
+    for i in students:
+        if i["id"] == stu_id:
+            print("Student found: ",i)
+        else:
+            print("Student not found")           
 
 def update_student():
-    pass
+    stu_id = int(input("Enter student id to update: "))
+    for i in students:
+        if i["id"] == stu_id:
+            name = input("Enter new name: ")
+            marks = int(input("Enter new marks: "))
+            i["name"] = name
+            i["marks"] = marks
+            with open("students.json", "w") as f:
+                json.dump(students, f)
+            print("Student updated successfully")
+            return
+    print("Student not found")
 
 def Delete_student():
-    pass
+    stu_id = int(input("Enter student id to delete: "))
+    for i in students:
+        if i["id"] == stu_id:
+            students.remove(i)
+            with open("students.json", "w") as f:
+                json.dump(students, f)
+            print("Student deleted successfully")
+            return
+    print("Student not found")
 
 print("Welcome to Student Management System")
 print("Menu:")
