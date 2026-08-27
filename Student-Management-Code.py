@@ -21,7 +21,11 @@ def add_student():
         json.dump(students, f)
 
 def Search_student():
-    stu_id = int(input("Enter student id to search: "))
+    try:
+        stu_id = int(input("Enter student id to search: "))
+    except ValueError:
+        print("Invalid input. Please enter a valid student id.")
+        return
     for i in students:
         if i["id"] == stu_id:
             print("Student found: ",i)
@@ -29,7 +33,11 @@ def Search_student():
             continue          
 
 def update_student():
-    stu_id = int(input("Enter student id to update: "))
+    try:
+        stu_id = int(input("Enter student id to update: "))
+    except ValueError:
+        print("Invalid input. Please enter a valid student id.")
+        return
     for i in students:
         if i["id"] == stu_id:
             name = input("Enter new name: ")
@@ -43,7 +51,11 @@ def update_student():
     print("Student not found")
 
 def Delete_student():
-    stu_id = int(input("Enter student id to delete: "))
+    try:
+        stu_id = int(input("Enter student id to delete: "))
+    except ValueError:
+        print("Invalid input. Please enter a valid student id.")
+        return
     for i in students:
         if i["id"] == stu_id:
             students.remove(i)
