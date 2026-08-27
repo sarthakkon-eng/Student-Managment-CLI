@@ -21,12 +21,25 @@ def add_student():
         json.dump(students, f)
 
 def Search_student():
-    stu_id = int(input("Enter student id to search: "))
-    for i in students:
-        if i["id"] == stu_id:
-            print("Student found: ",i)
+    print("Enter search type:")
+    print("1. Search by name")
+    print("2. Search by id")
+    search_type = int(input("Enter your choice: "))
+    if search_type == 1:
+        name = input("Enter student name to search: ")
+        for i in students:
+            if i["name"] == name.capitalize():
+                print("Student found: ",i)
+            else:
+                continue
+    elif search_type == 2:
+
+        stu_id = int(input("Enter student id to search: "))
+        for i in students:
+            if i["id"] == stu_id:
+                print("Student found: ",i)
         else:
-            continue          
+            print("Student not found")
 
 def update_student():
     stu_id = int(input("Enter student id to update: "))
