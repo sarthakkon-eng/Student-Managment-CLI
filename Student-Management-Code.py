@@ -59,8 +59,9 @@ print("1. Add Student")
 print("2. Search Student")
 print("3. Update Student")
 print("4. Delete Student")
+print("5. Exit")
 
-choice = "no"
+choice = "yes"
 while choice == "yes":
     x = int(input("Enter your choice: "))
     if x == 1:
@@ -71,6 +72,9 @@ while choice == "yes":
         update_student()
     elif x == 4:
         Delete_student()
+    elif x == 5:
+        print("Exiting...")
+        break
     else :
         print("Invalid choice")
     choice = input("Do you want to continue? (yes/no): ")
