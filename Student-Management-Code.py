@@ -28,7 +28,7 @@ def Search_student():
     if search_type == 1:
         name = input("Enter student name to search: ")
         for i in students:
-            if i["name"] == name:
+            if i["name"] == name.capitalize():
                 print("Student found: ",i)
             else:
                 continue
