@@ -70,12 +70,15 @@ print("1. Add Student")
 print("2. Search Student")
 print("3. Update Student")
 print("4. Delete Student")
-x = int(input("Enter your choice: "))
-if x == 1:
-    add_student()
-elif x == 2:
-    Search_student()
-elif x == 3:
-    update_student()
-elif x == 4:
-    Delete_student()
+try:
+    x = int(input("Enter your choice: "))
+    if x == 1:
+        add_student()
+    elif x == 2:
+        Search_student()
+    elif x == 3:
+        update_student()
+    elif x == 4:
+        Delete_student()
+except ValueError:
+    print("Invalid input. Please enter a valid choice.")
