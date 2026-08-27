@@ -5,9 +5,12 @@ with open("students.json", "r") as f:
     students = json.load(f)
 
 def add_student():
-    name = input("Enter student name: ")
-    stu_id = int(input("Enter student id: "))
-    marks = int(input("Enter student marks: "))
+    try:
+        name = input("Enter student name: ")
+        stu_id = int(input("Enter student id: "))
+        marks = int(input("Enter student marks: "))
+    except ValueError:
+        print("Invalid input. Please enter valid numbers.")
     stu_info = {
         "id": stu_id,
         "name": name,
@@ -17,15 +20,23 @@ def add_student():
     with open("students.json", "w") as f:
         json.dump(students, f)
 def Search_student():
-    stu_id = int(input("Enter student id to search: "))
+    try:
+        stu_id = int(input("Enter student id to search: "))
+    except ValueError:
+        print("Invalid input. Please enter a valid student id.")
+        return
     for i in students:
         if i["id"] == stu_id:
             print("Student found: ",i)
-        else:
-            print("Student not found")           
+            return
+    print("Student not found")           
 
 def update_student():
-    stu_id = int(input("Enter student id to update: "))
+    try:
+        stu_id = int(input("Enter student id to update: "))
+    except ValueError:
+        print("Invalid input. Please enter a valid student id.")
+        return
     for i in students:
         if i["id"] == stu_id:
             name = input("Enter new name: ")
@@ -39,7 +50,11 @@ def update_student():
     print("Student not found")
 
 def Delete_student():
-    stu_id = int(input("Enter student id to delete: "))
+    try:
+        stu_id = int(input("Enter student id to delete: "))
+    except ValueError:
+        print("Invalid input. Please enter a valid student id.")
+        return
     for i in students:
         if i["id"] == stu_id:
             students.remove(i)
